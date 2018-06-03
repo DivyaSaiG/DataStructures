@@ -1,6 +1,6 @@
 package com.sai.datastructures.lists;
 
-public class ArrayList<T> {
+public class ArrayList<T> implements List<T> {
 
 	private final static int INTITIAL_CAPACITY = 5;
 	private Object[] arrayOne;
@@ -15,6 +15,7 @@ public class ArrayList<T> {
 		currentIndex = 0;
 	}
 
+	@Override
 	public void addFirst(T obj) {
 		if (currentIndex >= arrayOne.length) {
 			Object[] arrayTwo = new Object[2 * arrayOne.length];
@@ -29,6 +30,7 @@ public class ArrayList<T> {
 
 	}
 
+	@Override
 	public T removeFirst() {
 		if (currentIndex > 0) {
 			return (T) arrayOne[--currentIndex];
@@ -36,6 +38,7 @@ public class ArrayList<T> {
 		return null;
 	}
 
+	@Override
 	public T get(int i) {
 
 		if (i >= 0 && i < currentIndex) {
@@ -44,6 +47,7 @@ public class ArrayList<T> {
 		throw new IllegalArgumentException("Index out of bound");
 	}
 
+	@Override
 	public int size() {
 		return currentIndex;
 	}
